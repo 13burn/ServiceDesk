@@ -3,7 +3,7 @@ import threading
 import eel
 from cefpython3 import cefpython as cef
 from time import sleep
-
+#TODO: separate ell and cef modules to their own files... maybe just eel
 def eel_start():
     eel.init("web")
 

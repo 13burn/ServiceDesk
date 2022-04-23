@@ -1,10 +1,18 @@
+
 import threading
 import eel
 from cefpython3 import cefpython as cef
+from time import sleep
 
 def eel_start():
     eel.init("web")
-    eel.start('index.html', mode=False, port=8080) #cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])
+
+    @eel.expose                         # Expose this function to Javascript
+    def say_hello_py():
+        print('Hello from Python World!')
+
+    eel.start('index.html', mode=False, port=8080, disable_cache=True) #cmdline_args=['--start-fullscreen', '--browser-startup-dialog'])
+    
     
 def cef_start():
     cef.Initialize()
